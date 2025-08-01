@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Parcours_Makers_Module_1_Prompt_engineering_avance_Cours_3_1753436820</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Parcours_Makers_Module_1_Prompt_engineering_avance_Cours_3_clean</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -32,6 +32,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -7514,9 +7515,9 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9"><strong>Parcours Makers - Module 1 - Prompt engineering avancé</strong><a class="anchor-link" href="#Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9">¶</a></h1><h2 id="Cours-3-:-Orchestrer-des-agents-ReAct-avec-LangGraph"><strong>Cours 3 : Orchestrer des agents ReAct avec LangGraph</strong><a class="anchor-link" href="#Cours-3-:-Orchestrer-des-agents-ReAct-avec-LangGraph">¶</a></h2><p>Ce notebook illustre l'implémentation d'un assistant marketing intelligent
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="No description has been provided for this image" src="data:image/png;base64,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" style="float:left" width="80"/>
+<h3 id="Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9"><strong>Parcours Makers - Module 1 - Prompt engineering avancé</strong><a class="anchor-link" href="#Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9">¶</a></h3><h2 id="Cours-3-:-Orchestrer-des-agents-ReAct-avec-LangGraph"><strong>Cours 3 : Orchestrer des agents ReAct avec LangGraph</strong><a class="anchor-link" href="#Cours-3-:-Orchestrer-des-agents-ReAct-avec-LangGraph">¶</a></h2><p>Ce notebook illustre l'implémentation d'un assistant marketing intelligent
 qui combine plusieurs technologies d'IA pour automatiser l'analyse de sentiment
 et la génération de contenu personnalisé.</p>
 <p>Cas d'usage : Une équipe marketing veut analyser les retours clients et générer
@@ -7537,8 +7538,7 @@ automatiquement du contenu publicitaire adapté aux sentiments exprimés.</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="1.-Pr%C3%A9parer-l%E2%80%99environnement">1. Préparer l’environnement<a class="anchor-link" href="#1.-Pr%C3%A9parer-l%E2%80%99environnement">¶</a></h2>
 </div>
 </div>
@@ -7548,47 +7548,18 @@ automatiquement du contenu publicitaire adapté aux sentiments exprimés.</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Avant de commencer, assurons-nous que toutes les bibliothèques nécessaires sont bien installées et que l'accès à l'API OpenAI est configuré.</p>
 <p>Exécutez la cellule suivante <strong>une seule fois</strong> pour installer les bibliothèques utilisées dans ce notebook :</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> \
-  <span class="n">faiss</span><span class="o">-</span><span class="n">cpu</span><span class="o">==</span><span class="mf">1.11.0</span><span class="o">.</span><span class="n">post1</span> \
-  <span class="n">langchain</span><span class="o">==</span><span class="mf">0.3.26</span> \
-  <span class="n">langchain</span><span class="o">-</span><span class="n">community</span><span class="o">==</span><span class="mf">0.3.27</span> \
-  <span class="n">langchain</span><span class="o">-</span><span class="n">core</span><span class="o">==</span><span class="mf">0.3.69</span> \
-  <span class="n">langchain</span><span class="o">-</span><span class="n">openai</span><span class="o">==</span><span class="mf">0.3.28</span> \
-  <span class="n">langchain</span><span class="o">-</span><span class="n">text</span><span class="o">-</span><span class="n">splitters</span><span class="o">==</span><span class="mf">0.3.8</span> \
-  <span class="n">langgraph</span><span class="o">==</span><span class="mf">0.5.3</span> \
-  <span class="n">langgraph</span><span class="o">-</span><span class="n">checkpoint</span><span class="o">==</span><span class="mf">2.1.1</span> \
-  <span class="n">langgraph</span><span class="o">-</span><span class="n">prebuilt</span><span class="o">==</span><span class="mf">0.5.2</span> \
-  <span class="n">langgraph</span><span class="o">-</span><span class="n">sdk</span><span class="o">==</span><span class="mf">0.1.73</span> \
-  <span class="n">openai</span><span class="o">==</span><span class="mf">1.96.1</span> \
-  <span class="n">python</span><span class="o">-</span><span class="n">dotenv</span><span class="o">==</span><span class="mf">1.1.1</span> \
-  <span class="n">tiktoken</span><span class="o">==</span><span class="mf">0.9.0</span> \
-  <span class="n">wikipedia</span><span class="o">==</span><span class="mf">1.4.0</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>  Preparing metadata (setup.py) ... done
      <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">43.7/43.7 kB</span> <span class="ansi-red-fg">2.8 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
@@ -7607,38 +7578,12 @@ automatiquement du contenu publicitaire adapté aux sentiments exprimés.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">getpass</span><span class="o">,</span> <span class="nn">openai</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">List</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">load_dotenv</span><span class="p">()</span>
-<span class="k">if</span> <span class="s2">"OPENAI_API_KEY"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"OPENAI_API_KEY"</span><span class="p">]</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Entrez votre clé OpenAI : "</span><span class="p">)</span>
-
-<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"OPENAI_API_KEY"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Entrez votre clé OpenAI : ··········
 </pre>
@@ -7646,34 +7591,13 @@ automatiquement du contenu publicitaire adapté aux sentiments exprimés.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Imports pour les différentes fonctionnalités</span>
-<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span><span class="p">,</span> <span class="n">OpenAIEmbeddings</span>
-<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">create_react_agent</span><span class="p">,</span> <span class="n">AgentExecutor</span>
-<span class="kn">from</span> <span class="nn">langchain.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
-<span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">Tool</span>
-<span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">VectorStoreRetrieverMemory</span>
-<span class="kn">from</span> <span class="nn">langchain_community.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
-<span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">END</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="2.-Agent-ReAct-pour-l'analyse-de-sentiment">2. Agent ReAct pour l'analyse de sentiment<a class="anchor-link" href="#2.-Agent-ReAct-pour-l'analyse-de-sentiment">¶</a></h2>
 </div>
 </div>
@@ -7683,8 +7607,7 @@ automatiquement du contenu publicitaire adapté aux sentiments exprimés.</p>
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Un agent ReAct combine raisonnement et action pour résoudre des problèmes complexes.
 Dans notre cas marketing, il va analyser les retours clients en plusieurs étapes :</p>
 <ol>
@@ -7708,130 +7631,13 @@ Dans notre cas marketing, il va analyser les retours clients en plusieurs étape
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Configuration du modèle LLM</span>
-<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o"</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Température légèrement créative pour le marketing</span>
-
-<span class="c1"># Outil d'analyse de sentiment personnalisé</span>
-<span class="k">def</span> <span class="nf">analyze_customer_feedback</span><span class="p">(</span><span class="n">feedback_text</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Simule une analyse de sentiment avancée avec contexte métier</span>
-<span class="sd">    En réalité, ceci pourrait appeler une API spécialisée ou une base de données</span>
-<span class="sd">    """</span>
-    <span class="c1"># Simulation d'une analyse plus sophistiquée</span>
-    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">    Analyse ce retour client du point de vue marketing :</span>
-
-<span class="s2">    Retour : "</span><span class="si">{</span><span class="n">feedback_text</span><span class="si">}</span><span class="s2">"</span>
-
-<span class="s2">    Fournis :</span>
-<span class="s2">    1. Sentiment (positif/négatif/neutre) avec score 0-10</span>
-<span class="s2">    2. Mots-clés émotionnels identifiés</span>
-<span class="s2">    3. Aspect produit/service mentionné</span>
-<span class="s2">    4. Niveau d'urgence de réponse (bas/moyen/élevé)</span>
-
-<span class="s2">    Format JSON uniquement.</span>
-<span class="s2">    """</span>
-
-    <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-
-<span class="c1"># Création de l'outil pour l'agent</span>
-<span class="n">sentiment_analysis_tool</span> <span class="o">=</span> <span class="n">Tool</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"Customer Sentiment Analyzer"</span><span class="p">,</span>
-    <span class="n">func</span><span class="o">=</span><span class="n">analyze_customer_feedback</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">"Analyse le sentiment et les aspects clés d'un retour client pour stratégie marketing"</span>
-<span class="p">)</span>
-
-<span class="c1"># Template ReAct spécialisé pour le marketing</span>
-<span class="n">marketing_react_template</span> <span class="o">=</span> <span class="s2">"""Tu es un expert en analyse marketing. Tu analyses les retours clients de manière systématique.</span>
-
-<span class="s2">Outils disponibles :</span>
-<span class="si">{tools}</span><span class="s2"></span>
-
-<span class="s2">Format d'analyse :</span>
-
-<span class="s2">Question: le retour client à analyser</span>
-<span class="s2">Thought: je dois réfléchir à l'approche d'analyse</span>
-<span class="s2">Action: l'action à prendre, doit être l'un de [</span><span class="si">{tool_names}</span><span class="s2">]</span>
-<span class="s2">Action Input: le texte du retour client</span>
-<span class="s2">Observation: le résultat de l'analyse</span>
-<span class="s2">... (répéter Thought/Action/Action Input/Observation si nécessaire)</span>
-<span class="s2">Thought: j'ai maintenant toutes les informations nécessaires</span>
-<span class="s2">Final Answer: recommandations marketing basées sur l'analyse</span>
-
-<span class="s2">Commence !</span>
-
-<span class="s2">Question: </span><span class="si">{input}</span><span class="s2"></span>
-<span class="s2">Thought:</span><span class="si">{agent_scratchpad}</span><span class="s2">"""</span>
-
-<span class="n">marketing_prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
-    <span class="n">template</span><span class="o">=</span><span class="n">marketing_react_template</span><span class="p">,</span>
-    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">"input"</span><span class="p">,</span> <span class="s2">"tools"</span><span class="p">,</span> <span class="s2">"tool_names"</span><span class="p">,</span> <span class="s2">"agent_scratchpad"</span><span class="p">],</span>
-<span class="p">)</span>
-
-<span class="c1"># Création de l'agent marketing ReAct</span>
-<span class="n">marketing_react_agent</span> <span class="o">=</span> <span class="n">create_react_agent</span><span class="p">(</span>
-    <span class="n">llm</span><span class="p">,</span>
-    <span class="p">[</span><span class="n">sentiment_analysis_tool</span><span class="p">],</span>
-    <span class="n">marketing_prompt</span>
-<span class="p">)</span>
-
-<span class="n">marketing_agent</span> <span class="o">=</span> <span class="n">AgentExecutor</span><span class="p">(</span>
-    <span class="n">agent</span><span class="o">=</span><span class="n">marketing_react_agent</span><span class="p">,</span>
-    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">sentiment_analysis_tool</span><span class="p">],</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">handle_parsing_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">max_iterations</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="c1"># Limite pour éviter les boucles infinies</span>
-    <span class="n">max_execution_time</span><span class="o">=</span><span class="mi">30</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Test de l'agent avec un retour client typique</span>
-<span class="n">customer_feedback</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">J'ai acheté votre nouveau produit la semaine dernière et je suis vraiment déçu.</span>
-<span class="s2">La qualité n'est pas au rendez-vous par rapport au prix payé. Le service client</span>
-<span class="s2">m'a fait attendre 2 heures pour une réponse qui n'était même pas utile.</span>
-<span class="s2">Je réfléchis sérieusement à demander un remboursement.</span>
-<span class="s2">"""</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"=== ANALYSE DE SENTIMENT AVEC AGENT REACT ==="</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Retour client analysé : </span><span class="si">{</span><span class="n">customer_feedback</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">marketing_agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">"input"</span><span class="p">:</span> <span class="n">customer_feedback</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"RECOMMANDATIONS MARKETING:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">'output'</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>=== ANALYSE DE SENTIMENT AVEC AGENT REACT ===
 Retour client analysé : 
@@ -7903,8 +7709,7 @@ RECOMMANDATIONS MARKETING:
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="3.-Workflow-LangGraph-pour-g%C3%A9n%C3%A9ration-de-contenu">3. Workflow LangGraph pour génération de contenu<a class="anchor-link" href="#3.-Workflow-LangGraph-pour-g%C3%A9n%C3%A9ration-de-contenu">¶</a></h2>
 </div>
 </div>
@@ -7914,8 +7719,7 @@ RECOMMANDATIONS MARKETING:
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>LangGraph permet de créer des workflows complexes avec plusieurs étapes
 et conditions. Parfait pour des processus marketing multi-étapes :</p>
 <ol>
@@ -7937,219 +7741,14 @@ et conditions. Parfait pour des processus marketing multi-étapes :</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Définition du schéma d'état pour le workflow marketing</span>
-<span class="k">class</span> <span class="nc">MarketingWorkflowState</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
-    <span class="n">brief</span><span class="p">:</span> <span class="nb">str</span>                    <span class="c1"># Brief marketing initial</span>
-    <span class="n">target_audience</span><span class="p">:</span> <span class="nb">str</span>          <span class="c1"># Audience cible identifiée</span>
-    <span class="n">content_ideas</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>      <span class="c1"># Idées de contenu générées</span>
-    <span class="n">final_content</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># Contenu final optimisé</span>
-    <span class="n">performance_prediction</span><span class="p">:</span> <span class="nb">str</span>   <span class="c1"># Prédiction de performance</span>
-
-<span class="c1"># Node 1: Analyse du brief et identification de l'audience</span>
-<span class="k">def</span> <span class="nf">analyze_marketing_brief_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MarketingWorkflowState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MarketingWorkflowState</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Analyse le brief marketing et identifie l'audience cible</span>
-
-<span class="sd">    Points critiques :</span>
-<span class="sd">    - Extraction des insights clés du brief</span>
-<span class="sd">    - Identification précise de la cible</span>
-<span class="sd">    - Définition des objectifs mesurables</span>
-<span class="sd">    """</span>
-    <span class="n">brief_analysis_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">    Analyse ce brief marketing et identifie l'audience cible principale :</span>
-
-<span class="s2">    Brief : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'brief'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-
-<span class="s2">    Fournis :</span>
-<span class="s2">    1. Audience cible principale (âge, démographie + psychographie, eg. 25-50 ans)</span>
-<span class="s2">    2. 3 insights clés du brief</span>
-<span class="s2">    3. Objectif principal de la campagne</span>
-
-<span class="s2">    Réponds de manière concise et actionnable. Chaque point à fournir doit être mis après retour à ligne.</span>
-<span class="s2">    """</span>
-
-    <span class="n">analysis</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">brief_analysis_prompt</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="c1"># Extraction de l'audience (simulation - en réalité utiliserait du parsing plus sophistiqué)</span>
-    <span class="n">target_audience</span> <span class="o">=</span> <span class="s2">"Audience analysée : "</span> <span class="o">+</span> <span class="n">analysis</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">analysis</span> <span class="k">else</span> <span class="s2">"Audience générale"</span>
-
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">"brief"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"brief"</span><span class="p">],</span>
-        <span class="s2">"target_audience"</span><span class="p">:</span> <span class="n">target_audience</span><span class="p">,</span>
-        <span class="s2">"content_ideas"</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="s2">"final_content"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-        <span class="s2">"performance_prediction"</span><span class="p">:</span> <span class="s2">""</span>
-    <span class="p">}</span>
-
-<span class="c1"># Node 2: Génération d'idées créatives</span>
-<span class="k">def</span> <span class="nf">generate_content_ideas_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MarketingWorkflowState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MarketingWorkflowState</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Génère plusieurs idées de contenu basées sur l'analyse</span>
-
-<span class="sd">    Bonnes pratiques :</span>
-<span class="sd">    - Diversité des formats (texte, visuel, vidéo)</span>
-<span class="sd">    - Adaptation au canal de diffusion</span>
-<span class="sd">    - Tests A/B potentiels</span>
-<span class="sd">    """</span>
-    <span class="n">ideas_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">    Génère 3 idées créatives pour ce contexte marketing :</span>
-
-<span class="s2">    Brief : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'brief'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    Audience : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'target_audience'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-
-<span class="s2">    Pour chaque idée, fournis :</span>
-<span class="s2">    - Concept créatif principal</span>
-<span class="s2">    - Format recommandé (post social, email, pub display...)</span>
-<span class="s2">    - Accroche principale</span>
-
-<span class="s2">    Sois créatif mais reste aligné sur les objectifs business.</span>
-<span class="s2">    """</span>
-
-    <span class="n">ideas_response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">ideas_prompt</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="c1"># Extraction des idées (simplifiée)</span>
-    <span class="n">content_ideas</span> <span class="o">=</span> <span class="n">ideas_response</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span> <span class="k">if</span> <span class="n">ideas_response</span> <span class="k">else</span> <span class="p">[</span><span class="s2">"Idée par défaut"</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">"brief"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"brief"</span><span class="p">],</span>
-        <span class="s2">"target_audience"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"target_audience"</span><span class="p">],</span>
-        <span class="s2">"content_ideas"</span><span class="p">:</span> <span class="n">content_ideas</span><span class="p">,</span>
-        <span class="s2">"final_content"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-        <span class="s2">"performance_prediction"</span><span class="p">:</span> <span class="s2">""</span>
-    <span class="p">}</span>
-
-<span class="c1"># Node 3: Rédaction du contenu final optimisé</span>
-<span class="k">def</span> <span class="nf">create_final_content_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MarketingWorkflowState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MarketingWorkflowState</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Sélectionne la meilleure idée et crée le contenu final</span>
-
-<span class="sd">    Critères d'optimisation :</span>
-<span class="sd">    - Clarté du message</span>
-<span class="sd">    - Call-to-action efficace</span>
-<span class="sd">    - Adaptation au canal</span>
-<span class="sd">    - Respect des contraintes (caractères, format...)</span>
-<span class="sd">    """</span>
-    <span class="n">content_creation_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">    Crée le contenu marketing final optimisé :</span>
-
-<span class="s2">    Brief : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'brief'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    Audience : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'target_audience'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    Meilleures idées : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'content_ideas'</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">  # Prend les 2 premières</span>
-
-<span class="s2">    Crée un contenu publicitaire de 150 mots maximum avec :</span>
-<span class="s2">    - Titre accrocheur</span>
-<span class="s2">    - Message principal convaincant</span>
-<span class="s2">    - Call-to-action clair</span>
-<span class="s2">    - Ton adapté à l'audience</span>
-
-<span class="s2">    Optimise pour l'engagement et la conversion.</span>
-<span class="s2">    """</span>
-
-    <span class="n">final_content</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">content_creation_prompt</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="c1"># Prédiction de performance (simulation)</span>
-    <span class="n">performance_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">    Évalue le potentiel de ce contenu marketing :</span>
-
-<span class="s2">    Contenu : </span><span class="si">{</span><span class="n">final_content</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    Audience : </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">'target_audience'</span><span class="p">]</span><span class="si">}</span><span class="s2"></span>
-
-<span class="s2">    Donne un score de performance prédit (1-10) et justifie brièvement.</span>
-<span class="s2">    """</span>
-
-    <span class="n">performance_prediction</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">performance_prompt</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">"brief"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"brief"</span><span class="p">],</span>
-        <span class="s2">"target_audience"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"target_audience"</span><span class="p">],</span>
-        <span class="s2">"content_ideas"</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s2">"content_ideas"</span><span class="p">],</span>
-        <span class="s2">"final_content"</span><span class="p">:</span> <span class="n">final_content</span><span class="p">,</span>
-        <span class="s2">"performance_prediction"</span><span class="p">:</span> <span class="n">performance_prediction</span>
-    <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Construction du workflow LangGraph</span>
-<span class="n">marketing_workflow</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">MarketingWorkflowState</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"BriefAnalysis"</span><span class="p">,</span> <span class="n">analyze_marketing_brief_node</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"IdeaGeneration"</span><span class="p">,</span> <span class="n">generate_content_ideas_node</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">"ContentCreation"</span><span class="p">,</span> <span class="n">create_final_content_node</span><span class="p">)</span>
-
-<span class="c1"># Définition du flux</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">set_entry_point</span><span class="p">(</span><span class="s2">"BriefAnalysis"</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"BriefAnalysis"</span><span class="p">,</span> <span class="s2">"IdeaGeneration"</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"IdeaGeneration"</span><span class="p">,</span> <span class="s2">"ContentCreation"</span><span class="p">)</span>
-<span class="n">marketing_workflow</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">"ContentCreation"</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
-
-<span class="c1"># Compilation du workflow</span>
-<span class="n">content_generation_graph</span> <span class="o">=</span> <span class="n">marketing_workflow</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Test du workflow avec un brief marketing réel</span>
-<span class="n">marketing_brief</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">Nous lançons une nouvelle application mobile de fitness pour les professionnels</span>
-<span class="s2">occupés âgés de 25-45 ans. L'app propose des séances de 15 minutes adaptées</span>
-<span class="s2">aux emplois du temps chargés. Objectif : acquérir 1000 utilisateurs en 2 mois</span>
-<span class="s2">avec un budget publicitaire de 10k€. Public cible : cadres urbains soucieux</span>
-<span class="s2">de leur santé mais manquant de temps.</span>
-<span class="s2">"""</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Brief marketing : </span><span class="si">{</span><span class="n">marketing_brief</span><span class="p">[:</span><span class="mi">150</span><span class="p">]</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-
-<span class="n">workflow_result</span> <span class="o">=</span> <span class="n">content_generation_graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span>
-    <span class="s2">"brief"</span><span class="p">:</span> <span class="n">marketing_brief</span><span class="p">,</span>
-    <span class="s2">"target_audience"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"content_ideas"</span><span class="p">:</span> <span class="p">[],</span>
-    <span class="s2">"final_content"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"performance_prediction"</span><span class="p">:</span> <span class="s2">""</span>
-<span class="p">})</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"RÉSULTAT DU WORKFLOW DE GÉNÉRATION:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Audience identifiée : </span><span class="si">{</span><span class="n">workflow_result</span><span class="p">[</span><span class="s1">'target_audience'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Contenu final :</span><span class="se">\n</span><span class="si">{</span><span class="n">workflow_result</span><span class="p">[</span><span class="s1">'final_content'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Prédiction de performance :</span><span class="se">\n</span><span class="si">{</span><span class="n">workflow_result</span><span class="p">[</span><span class="s1">'performance_prediction'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Brief marketing : 
 Nous lançons une nouvelle application mobile de fitness pour les professionnels 
@@ -8192,26 +7791,12 @@ En résumé, le contenu est bien conçu pour l'audience cible, mais quelques aju
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="n">workflow_result</span><span class="p">[</span><span class="s2">"target_audience"</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'Audience analysée : 1. **Audience cible principale :**'</pre>
 </div>
@@ -8223,8 +7808,7 @@ En résumé, le contenu est bien conçu pour l'audience cible, mais quelques aju
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="4.-Streaming-pour-g%C3%A9n%C3%A9ration-en-temps-r%C3%A9el">4. Streaming pour génération en temps réel<a class="anchor-link" href="#4.-Streaming-pour-g%C3%A9n%C3%A9ration-en-temps-r%C3%A9el">¶</a></h2>
 </div>
 </div>
@@ -8234,8 +7818,7 @@ En résumé, le contenu est bien conçu pour l'audience cible, mais quelques aju
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Le streaming permet d'afficher le contenu au fur et à mesure de sa génération,
 améliorant l'expérience utilisateur et donnant l'impression de rapidité.</p>
 <p>Avantages en Marketing:</p>
@@ -8254,93 +7837,13 @@ améliorant l'expérience utilisateur et donnant l'impression de rapidité.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">stream_marketing_content</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Génère du contenu marketing en streaming avec feedback temps réel</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        prompt: Le prompt marketing</span>
-<span class="sd">        max_tokens: Limite de tokens pour contrôler la longueur</span>
-<span class="sd">    """</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Génération en cours..."</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-            <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o"</span><span class="p">,</span>
-            <span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tu es un expert en copywriting. Génère du contenu marketing percutant et professionnel."</span>
-            <span class="p">},</span> <span class="p">{</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="n">prompt</span>
-            <span class="p">}],</span>
-            <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">max_tokens</span><span class="o">=</span><span class="n">max_tokens</span><span class="p">,</span>
-            <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span>  <span class="c1"># Plus de créativité pour le contenu marketing</span>
-        <span class="p">)</span>
-
-        <span class="n">full_content</span> <span class="o">=</span> <span class="s2">""</span>
-        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">chunk</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">content</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">content_piece</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">content</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">content_piece</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-                <span class="n">full_content</span> <span class="o">+=</span> <span class="n">content_piece</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"-"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Génération terminée!"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">full_content</span>
-
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Erreur lors du streaming : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"OPENAI_API_KEY"</span><span class="p">))</span>
-
-<span class="c1"># Test du streaming avec différents types de contenu marketing</span>
-<span class="n">streaming_prompts</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">"Écris un email marketing pour promouvoir une offre flash de 48h sur des produits tech"</span><span class="p">,</span>
-    <span class="s2">"Crée un post LinkedIn pour annoncer le lancement d'une formation en marketing digital"</span><span class="p">,</span>
-    <span class="s2">"Rédige une annonce Facebook pour un service de livraison de repas healthy"</span>
-<span class="p">]</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">streaming_prompts</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="s1">'='</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2"> STREAMING TEST </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'='</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Prompt : </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>
-    <span class="n">generated_content</span> <span class="o">=</span> <span class="n">stream_marketing_content</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
 ==================== STREAMING TEST 1 ====================
@@ -8441,8 +7944,7 @@ Génération terminée!
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="5.-Gestion-robuste-des-appels-API">5. Gestion robuste des appels API<a class="anchor-link" href="#5.-Gestion-robuste-des-appels-API">¶</a></h2>
 </div>
 </div>
@@ -8452,8 +7954,7 @@ Génération terminée!
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>En production marketing, la robustesse est cruciale :</p>
 <ul>
 <li>Campagnes en temps réel</li>
@@ -8470,170 +7971,13 @@ Génération terminée!
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">robust_marketing_api_call</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o"</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">use_fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Appel API robuste spécialement conçu pour les besoins marketing</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        messages: Messages pour l'API</span>
-<span class="sd">        model: Modèle à utiliser</span>
-<span class="sd">        max_retries: Nombre de tentatives</span>
-<span class="sd">        use_fallback: Utiliser un modèle de fallback si échec</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Réponse API ou contenu de fallback</span>
-<span class="sd">    """</span>
-
-    <span class="n">fallback_model</span> <span class="o">=</span> <span class="s2">"gpt-3.5-turbo"</span>  <span class="c1"># Modèle de secours plus rapide/moins cher</span>
-
-    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">current_model</span> <span class="o">=</span> <span class="n">model</span> <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">fallback_model</span>  <span class="c1"># Fallback après 2 échecs</span>
-
-            <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-                <span class="n">model</span><span class="o">=</span><span class="n">current_model</span><span class="p">,</span>
-                <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-                <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span>  <span class="c1"># Timeout adapté au marketing (réactivité importante)</span>
-            <span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Succès après </span><span class="si">{</span><span class="n">attempt</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2"> tentatives avec modèle </span><span class="si">{</span><span class="n">current_model</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-            <span class="k">return</span> <span class="n">response</span>
-
-        <span class="k">except</span> <span class="n">openai</span><span class="o">.</span><span class="n">RateLimitError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">wait_time</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>  <span class="c1"># Cap à 32 secondes</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rate limit - Tentative </span><span class="si">{</span><span class="n">attempt</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">max_retries</span><span class="si">}</span><span class="s2"> - Attente </span><span class="si">{</span><span class="n">wait_time</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">use_fallback</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">generate_fallback_content</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-                <span class="k">raise</span> <span class="n">e</span>
-
-        <span class="k">except</span> <span class="n">openai</span><span class="o">.</span><span class="n">APITimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Timeout API - Tentative </span><span class="si">{</span><span class="n">attempt</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">max_retries</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">use_fallback</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="n">generate_fallback_content</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-                <span class="k">raise</span> <span class="n">e</span>
-
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Erreur inattendue : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">attempt</span> <span class="o">==</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">use_fallback</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">generate_fallback_content</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="n">e</span>
-
-    <span class="k">return</span> <span class="kc">None</span>
-
-<span class="k">def</span> <span class="nf">generate_fallback_content</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Génère du contenu de fallback basique si l'API échoue complètement</span>
-<span class="sd">    Important en marketing pour ne jamais laisser l'utilisateur sans réponse</span>
-<span class="sd">    """</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Génération de contenu de fallback..."</span><span class="p">)</span>
-
-    <span class="c1"># Analyse basique du prompt pour générer un fallback pertinent</span>
-    <span class="n">user_message</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">msg</span><span class="p">[</span><span class="s2">"content"</span><span class="p">]</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">messages</span> <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="s2">"role"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"user"</span><span class="p">),</span> <span class="s2">""</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="s2">"email"</span> <span class="ow">in</span> <span class="n">user_message</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="n">fallback_content</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">        Objet : Offre spéciale à ne pas manquer !</span>
-
-<span class="s2">        Bonjour,</span>
-
-<span class="s2">        Nous avons une offre exceptionnelle pour vous.</span>
-
-<span class="s2">        [Votre contenu personnalisé ici]</span>
-
-<span class="s2">        Cordialement,</span>
-<span class="s2">        L'équipe</span>
-<span class="s2">        """</span>
-    <span class="k">elif</span> <span class="s2">"post"</span> <span class="ow">in</span> <span class="n">user_message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">"social"</span> <span class="ow">in</span> <span class="n">user_message</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="n">fallback_content</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">        Découvrez notre nouveauté !</span>
-
-<span class="s2">        [Votre message personnalisé]</span>
-
-<span class="s2">        #marketing #innovation</span>
-<span class="s2">        """</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">fallback_content</span> <span class="o">=</span> <span class="s2">"""</span>
-<span class="s2">        Contenu marketing généré automatiquement.</span>
-
-<span class="s2">        [Personnalisez ce contenu selon vos besoins]</span>
-
-<span class="s2">        Pour plus d'informations, contactez notre équipe.</span>
-<span class="s2">        """</span>
-
-    <span class="c1"># Simulation d'un objet response basique</span>
-    <span class="k">class</span> <span class="nc">FallbackResponse</span><span class="p">:</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="s1">'obj'</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{</span>
-                <span class="s1">'message'</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="s1">'obj'</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{</span><span class="s1">'content'</span><span class="p">:</span> <span class="n">content</span><span class="p">})()</span>
-            <span class="p">})()]</span>
-
-    <span class="k">return</span> <span class="n">FallbackResponse</span><span class="p">(</span><span class="n">fallback_content</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">extract_content_safely</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
-    <span class="sd">"""Extraction sécurisée du contenu avec gestion des fallbacks"""</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s1">'choices'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
-        <span class="k">return</span> <span class="s2">"Erreur : impossible d'extraire le contenu"</span>
-    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"Erreur : format de réponse inattendu"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Test de la robustesse avec simulation d'erreurs</span>
-<span class="n">marketing_messages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tu es un expert en marketing digital."</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Crée une campagne publicitaire pour un produit écologique innovant"</span><span class="p">}</span>
-<span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Test d'appel API robuste..."</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">robust_response</span> <span class="o">=</span> <span class="n">robust_marketing_api_call</span><span class="p">(</span><span class="n">marketing_messages</span><span class="p">)</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">extract_content_safely</span><span class="p">(</span><span class="n">robust_response</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Contenu généré avec succès :"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"..."</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span> <span class="k">else</span> <span class="n">content</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Échec complet après tous les fallbacks : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Test d'appel API robuste...
 Contenu généré avec succès :
@@ -8648,8 +7992,7 @@ Créer une campagne publicitaire pour un produit écologique innovant nécessite
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="6.-M%C3%A9moire-vectorielle">6. Mémoire vectorielle<a class="anchor-link" href="#6.-M%C3%A9moire-vectorielle">¶</a></h2>
 </div>
 </div>
@@ -8659,8 +8002,7 @@ Créer une campagne publicitaire pour un produit écologique innovant nécessite
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>La mémoire vectorielle permet de :</p>
 <ul>
 <li>Stocker les préférences clients historiques</li>
@@ -8685,244 +8027,13 @@ Créer une campagne publicitaire pour un produit écologique innovant nécessite
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Suppression des warnings pour la démo</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">MarketingMemoryManager</span><span class="p">:</span>
-    <span class="sd">"""</span>
-<span class="sd">    Gestionnaire de mémoire spécialisé pour les cas d'usage marketing</span>
-
-<span class="sd">    Fonctionnalités :</span>
-<span class="sd">    - Stockage des campagnes passées</span>
-<span class="sd">    - Recherche de contenu similaire</span>
-<span class="sd">    - Analyse de performance historique</span>
-<span class="sd">    - Recommandations personnalisées</span>
-<span class="sd">    """</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k_documents</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span> <span class="k">if</span> <span class="n">api_key</span> <span class="k">else</span> <span class="n">OpenAIEmbeddings</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k_documents</span> <span class="o">=</span> <span class="n">k_documents</span>
-
-        <span class="c1"># Initialisation avec des données marketing de base</span>
-        <span class="n">initial_data</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s2">"Campagne email Black Friday - taux d'ouverture 25</span><span class="si">% - a</span><span class="s2">udience 25-45 ans"</span><span class="p">,</span>
-            <span class="s2">"Post Instagram produit bio - 500 likes - audience éco-responsable"</span><span class="p">,</span>
-            <span class="s2">"Pub Facebook formation digital - CPC 1.2€ - audience entrepreneurs"</span>
-        <span class="p">]</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">vectorstore</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">from_texts</span><span class="p">(</span>
-            <span class="n">texts</span><span class="o">=</span><span class="n">initial_data</span><span class="p">,</span>
-            <span class="n">embedding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">embeddings</span><span class="p">,</span>
-            <span class="n">metadatas</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"email"</span><span class="p">,</span> <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">,</span> <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"general"</span><span class="p">},</span>
-                <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"social"</span><span class="p">,</span> <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"medium"</span><span class="p">,</span> <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"eco"</span><span class="p">},</span>
-                <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"ads"</span><span class="p">,</span> <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"low"</span><span class="p">,</span> <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"business"</span><span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">add_campaign_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">campaign_description</span><span class="p">,</span> <span class="n">performance_metrics</span><span class="p">,</span> <span class="n">audience_data</span><span class="p">,</span> <span class="n">campaign_type</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Ajoute les résultats d'une campagne à la mémoire</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            campaign_description: Description de la campagne</span>
-<span class="sd">            performance_metrics: Métriques de performance (CTR, conversions, etc.)</span>
-<span class="sd">            audience_data: Données sur l'audience ciblée</span>
-<span class="sd">            campaign_type: Type de campagne (email, social, ads, etc.)</span>
-<span class="sd">        """</span>
-
-        <span class="c1"># Construction du texte enrichi pour l'embedding</span>
-        <span class="n">enriched_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<span class="s2">        Campagne </span><span class="si">{</span><span class="n">campaign_type</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">campaign_description</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">        Performance: </span><span class="si">{</span><span class="n">performance_metrics</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">        Audience: </span><span class="si">{</span><span class="n">audience_data</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">        """</span>
-
-        <span class="c1"># Métadonnées structurées pour le filtrage</span>
-        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="n">campaign_type</span><span class="p">,</span>
-            <span class="s2">"timestamp"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">'now'</span><span class="p">)),</span>
-            <span class="s2">"performance_score"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_performance_score</span><span class="p">(</span><span class="n">performance_metrics</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">vectorstore</span><span class="o">.</span><span class="n">add_texts</span><span class="p">(</span>
-            <span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">enriched_text</span><span class="o">.</span><span class="n">strip</span><span class="p">()],</span>
-            <span class="n">metadatas</span><span class="o">=</span><span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
-        <span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Campagne </span><span class="si">{</span><span class="n">campaign_type</span><span class="si">}</span><span class="s2"> ajoutée à la mémoire marketing"</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">find_similar_campaigns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">campaign_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_performance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Trouve des campagnes similaires pour inspiration</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            query: Description de ce qu'on cherche</span>
-<span class="sd">            campaign_type: Filtre par type de campagne (optionnel)</span>
-<span class="sd">            min_performance: Score minimum de performance (optionnel)</span>
-<span class="sd">        """</span>
-
-        <span class="c1"># Recherche avec score de similarité</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectorstore</span><span class="o">.</span><span class="n">similarity_search_with_score</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">k_documents</span><span class="p">)</span>
-
-        <span class="c1"># Filtrage optionnel par métadonnées</span>
-        <span class="n">filtered_results</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">doc</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">metadata</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">metadata</span>
-
-            <span class="c1"># Filtres</span>
-            <span class="k">if</span> <span class="n">campaign_type</span> <span class="ow">and</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span> <span class="o">!=</span> <span class="n">campaign_type</span><span class="p">:</span>
-                <span class="k">continue</span>
-            <span class="k">if</span> <span class="n">min_performance</span> <span class="ow">and</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"performance_score"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_performance</span><span class="p">:</span>
-                <span class="k">continue</span>
-
-            <span class="n">filtered_results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">doc</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">metadata</span><span class="p">))</span>
-
-        <span class="k">return</span> <span class="n">filtered_results</span>
-
-    <span class="k">def</span> <span class="nf">get_content_recommendations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brief</span><span class="p">,</span> <span class="n">target_audience</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Recommande du contenu basé sur l'historique et le brief</span>
-<span class="sd">        """</span>
-
-        <span class="n">search_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"brief: </span><span class="si">{</span><span class="n">brief</span><span class="si">}</span><span class="s2"> audience: </span><span class="si">{</span><span class="n">target_audience</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">similar_campaigns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_similar_campaigns</span><span class="p">(</span><span class="n">search_query</span><span class="p">,</span> <span class="n">min_performance</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">similar_campaigns</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">"Aucune campagne similaire trouvée. Création de contenu original recommandée."</span>
-
-        <span class="n">recommendations</span> <span class="o">=</span> <span class="s2">"Recommandations basées sur l'historique :</span><span class="se">\n\n</span><span class="s2">"</span>
-
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">similarity_score</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">similar_campaigns</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">recommendations</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="n">recommendations</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"   Similarité: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">similarity_score</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> | Performance passée: </span><span class="si">{</span><span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'performance_score'</span><span class="p">,</span> <span class="s1">'N/A'</span><span class="p">)</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">"</span>
-
-        <span class="k">return</span> <span class="n">recommendations</span>
-
-    <span class="k">def</span> <span class="nf">_calculate_performance_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">performance_metrics</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Calcule un score de performance normalisé (0-1)</span>
-<span class="sd">        En réalité, ceci analyserait des métriques réelles (CTR, ROI, etc.)</span>
-<span class="sd">        """</span>
-
-        <span class="c1"># Simulation basée sur des mots-clés dans les métriques</span>
-        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Score de base</span>
-
-        <span class="k">if</span> <span class="s2">"élevé"</span> <span class="ow">in</span> <span class="n">performance_metrics</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">"high"</span> <span class="ow">in</span> <span class="n">performance_metrics</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-            <span class="n">score</span> <span class="o">+=</span> <span class="mf">0.3</span>
-        <span class="k">if</span> <span class="s2">"excellent"</span> <span class="ow">in</span> <span class="n">performance_metrics</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-            <span class="n">score</span> <span class="o">+=</span> <span class="mf">0.2</span>
-        <span class="k">if</span> <span class="s2">"faible"</span> <span class="ow">in</span> <span class="n">performance_metrics</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">"low"</span> <span class="ow">in</span> <span class="n">performance_metrics</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-            <span class="n">score</span> <span class="o">-=</span> <span class="mf">0.2</span>
-
-        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>  <span class="c1"># Clamp entre 0 et 1</span>
-
-    <span class="k">def</span> <span class="nf">analyze_audience_preferences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">audience_segment</span><span class="p">):</span>
-        <span class="sd">"""</span>
-<span class="sd">        Analyse les préférences d'un segment d'audience basé sur l'historique</span>
-<span class="sd">        """</span>
-
-        <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"audience </span><span class="si">{</span><span class="n">audience_segment</span><span class="si">}</span><span class="s2">"</span>
-        <span class="n">relevant_campaigns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_similar_campaigns</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">relevant_campaigns</span><span class="p">:</span>
-            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Pas assez de données historiques pour l'audience : </span><span class="si">{</span><span class="n">audience_segment</span><span class="si">}</span><span class="s2">"</span>
-
-        <span class="n">analysis</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Analyse des préférences pour '</span><span class="si">{</span><span class="n">audience_segment</span><span class="si">}</span><span class="s2">' :</span><span class="se">\n\n</span><span class="s2">"</span>
-
-        <span class="c1"># Analyse des types de campagnes les plus performants</span>
-        <span class="n">campaign_types</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">performance_avg</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="k">for</span> <span class="n">doc</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">metadata</span> <span class="ow">in</span> <span class="n">relevant_campaigns</span><span class="p">:</span>
-            <span class="n">camp_type</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">,</span> <span class="s2">"unknown"</span><span class="p">)</span>
-            <span class="n">perf_score</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"performance_score"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">camp_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">campaign_types</span><span class="p">:</span>
-                <span class="n">campaign_types</span><span class="p">[</span><span class="n">camp_type</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="n">performance_avg</span><span class="p">[</span><span class="n">camp_type</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-
-            <span class="n">campaign_types</span><span class="p">[</span><span class="n">camp_type</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">performance_avg</span><span class="p">[</span><span class="n">camp_type</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">perf_score</span><span class="p">)</span>
-
-        <span class="c1"># Recommandations basées sur l'analyse</span>
-        <span class="k">for</span> <span class="n">camp_type</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">campaign_types</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">avg_perf</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">performance_avg</span><span class="p">[</span><span class="n">camp_type</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">performance_avg</span><span class="p">[</span><span class="n">camp_type</span><span class="p">])</span>
-            <span class="n">analysis</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"- </span><span class="si">{</span><span class="n">camp_type</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> campagnes, performance moyenne: </span><span class="si">{</span><span class="n">avg_perf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-
-        <span class="k">return</span> <span class="n">analysis</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Initialisation et test du gestionnaire de mémoire marketing</span>
-
-<span class="n">marketing_memory</span> <span class="o">=</span> <span class="n">MarketingMemoryManager</span><span class="p">()</span>
-
-<span class="c1"># Ajout de campagnes fictives mais réalistes</span>
-<span class="n">sample_campaigns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Email de bienvenue avec code promo 10%"</span><span class="p">,</span>
-        <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"Taux d'ouverture 35%, CTR 8%, conversions élevées"</span><span class="p">,</span>
-        <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"Nouveaux inscrits 18-35 ans"</span><span class="p">,</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"email"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Story Instagram avant/après transformation fitness"</span><span class="p">,</span>
-        <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"10k vues, 800 likes, engagement élevé"</span><span class="p">,</span>
-        <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"Femmes 25-40 ans fitness"</span><span class="p">,</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"social"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Pub Google Ads formation marketing digital"</span><span class="p">,</span>
-        <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"CPC 1.5€, taux de conversion 12%, ROI excellent"</span><span class="p">,</span>
-        <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"Entrepreneurs, freelances"</span><span class="p">,</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"ads"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Newsletter mensuelle avec tips marketing"</span><span class="p">,</span>
-        <span class="s2">"performance"</span><span class="p">:</span> <span class="s2">"Taux d'ouverture 28%, taux de clic faible"</span><span class="p">,</span>
-        <span class="s2">"audience"</span><span class="p">:</span> <span class="s2">"Abonnés réguliers, professionnels"</span><span class="p">,</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"email"</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Ajout des campagnes à la mémoire..."</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">campaign</span> <span class="ow">in</span> <span class="n">sample_campaigns</span><span class="p">:</span>
-    <span class="n">marketing_memory</span><span class="o">.</span><span class="n">add_campaign_result</span><span class="p">(</span>
-        <span class="n">campaign</span><span class="p">[</span><span class="s2">"description"</span><span class="p">],</span>
-        <span class="n">campaign</span><span class="p">[</span><span class="s2">"performance"</span><span class="p">],</span>
-        <span class="n">campaign</span><span class="p">[</span><span class="s2">"audience"</span><span class="p">],</span>
-        <span class="n">campaign</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Ajout des campagnes à la mémoire...
 Campagne email ajoutée à la mémoire marketing
@@ -8934,53 +8045,12 @@ Campagne email ajoutée à la mémoire marketing
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Test des fonctionnalités de recommandation</span>
-
-<span class="c1"># Recherche de campagnes similaires</span>
-<span class="n">query_test</span> <span class="o">=</span> <span class="s2">"campagne email avec offre promotionnelle pour nouveaux clients"</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Recherche : </span><span class="si">{</span><span class="n">query_test</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="n">similar_campaigns</span> <span class="o">=</span> <span class="n">marketing_memory</span><span class="o">.</span><span class="n">find_similar_campaigns</span><span class="p">(</span><span class="n">query_test</span><span class="p">,</span> <span class="n">campaign_type</span><span class="o">=</span><span class="s2">"email"</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Campagnes similaires trouvées (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">similar_campaigns</span><span class="p">)</span><span class="si">}</span><span class="s2">) :"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">similar_campaigns</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   Score de similarité: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   Performance: </span><span class="si">{</span><span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'performance_score'</span><span class="p">,</span> <span class="s1">'N/A'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># Analyse des préférences d'audience</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== ANALYSE DES PRÉFÉRENCES D'AUDIENCE ==="</span><span class="p">)</span>
-<span class="n">audience_analysis</span> <span class="o">=</span> <span class="n">marketing_memory</span><span class="o">.</span><span class="n">analyze_audience_preferences</span><span class="p">(</span><span class="s2">"femmes 25-40 ans"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">audience_analysis</span><span class="p">)</span>
-
-<span class="c1"># Recommandations pour un nouveau brief</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== RECOMMANDATIONS POUR NOUVEAU BRIEF ==="</span><span class="p">)</span>
-<span class="n">new_brief</span> <span class="o">=</span> <span class="s2">"Promouvoir une application de méditation pour réduire le stress"</span>
-<span class="n">target_audience</span> <span class="o">=</span> <span class="s2">"Professionnels urbains stressés"</span>
-
-<span class="n">recommendations</span> <span class="o">=</span> <span class="n">marketing_memory</span><span class="o">.</span><span class="n">get_content_recommendations</span><span class="p">(</span><span class="n">new_brief</span><span class="p">,</span> <span class="n">target_audience</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Brief : </span><span class="si">{</span><span class="n">new_brief</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Audience : </span><span class="si">{</span><span class="n">target_audience</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">recommendations</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Recherche : campagne email avec offre promotionnelle pour nouveaux clients
 
@@ -9036,9 +8106,8 @@ Recommandations basées sur l'historique :
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-Pour-aller-plus-loin">7. Pour aller plus loin<a class="anchor-link" href="#7.-Pour-aller-plus-loin">¶</a></h2>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Pour-aller-plus-loin">Pour aller plus loin<a class="anchor-link" href="#Pour-aller-plus-loin">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9047,8 +8116,7 @@ Recommandations basées sur l'historique :
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
 <li><p><strong>Ajouter une boucle de feedback humain</strong> : Intégrer un mécanisme de revue manuelle dans le workflow, où un humain valide ou ajuste les recommandations avant publication.</p>
 </li>
@@ -9069,8 +8137,7 @@ Recommandations basées sur l'historique :
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="8.-Conclusion">8. Conclusion<a class="anchor-link" href="#8.-Conclusion">¶</a></h2>
 </div>
 </div>
@@ -9080,8 +8147,7 @@ Recommandations basées sur l'historique :
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Ce notebook a montré comment combiner plusieurs briques technologiques pour construire un système marketing intelligent basé sur des agents ReAct et un workflow LangGraph. Chaque composant – de l’analyse de sentiment à la mémoire vectorielle – contribue à une chaîne décisionnelle cohérente, traçable et personnalisée. Ce type d’orchestration ouvre la voie à des assistants IA professionnels capables de raisonner, d’agir, de s’adapter et d’apprendre de manière continue.</p>
 </div>
 </div>

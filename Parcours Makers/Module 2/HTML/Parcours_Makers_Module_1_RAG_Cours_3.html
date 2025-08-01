@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Parcours_Makers_Module_1_Prompt_engineering_avance_Cours_2_clean</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Parcours_Makers_Module_1_RAG_Cours_3_clean</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7516,16 +7516,26 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="No description has been provided for this image" src="data:image/png;base64,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" style="float:left" width="80"/>
-<h3 id="Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9"><strong>Parcours Makers - Module 1 - Prompt engineering avancé</strong><a class="anchor-link" href="#Parcours-Makers---Module-1---Prompt-engineering-avanc%C3%A9">¶</a></h3><h2 id="Cours-2-:-Explorer-plusieurs-pistes-avec-Tree-of-Thoughts"><strong>Cours 2 : Explorer plusieurs pistes avec Tree of Thoughts</strong><a class="anchor-link" href="#Cours-2-:-Explorer-plusieurs-pistes-avec-Tree-of-Thoughts">¶</a></h2><p>Comment générer une idée vraiment percutante sans rester bloqué sur la première intuition ? Ce notebook vous invite à explorer une approche plus structurée du raisonnement créatif grâce à Tree of Thoughts. En s’appuyant sur LangChain, LangGraph et quelques outils Python, vous apprendrez à construire, évaluer et comparer plusieurs solutions possibles à un problème marketing.</p>
-<p>Chaque étape est commentée pour guider la compréhension, illustrer les apports concrets de l’approche arborescente et encourager un regard critique sur les résultats produits.</p>
-<p>Dans ce cas pratique, vous endossez le rôle d’un·e responsable marketing chargé·e de créer un slogan pour une marque éthique. Entre créativité, contraintes de communication et critères d’impact, il ne s’agit pas seulement d’avoir une bonne idée mais de choisir la meilleure parmi plusieurs alternatives.</p>
-<p>Grâce à Tree of Thoughts, vous pourrez :</p>
+<h1><img alt="No description has been provided for this image" src="https://drive.google.com/uc?export=view&amp;id=1xZPGJpfeCyY2e_E0OsT0rlh4uZXgsN6p" style="float:left" width="80"/></h1>
+<h3 id="Parcours-Makers---Module-2---Introduction-au-RAG"><strong>Parcours Makers - Module 2 - Introduction au RAG</strong><a class="anchor-link" href="#Parcours-Makers---Module-2---Introduction-au-RAG">¶</a></h3><h2 id="Cours-3-:-Aller-plus-loin-avec-RAG-:-m%C3%A9moire,-d%C3%A9ploiement-et-interface"><strong>Cours 3 : Aller plus loin avec RAG : mémoire, déploiement et interface</strong><a class="anchor-link" href="#Cours-3-:-Aller-plus-loin-avec-RAG-:-m%C3%A9moire,-d%C3%A9ploiement-et-interface">¶</a></h2><p>Ce notebook vous guide dans l'extension d'un système RAG (Retrieval-Augmented Generation) avec des fonctionnalités avancées essentielles pour un déploiement en production. Vous apprendrez à ajouter une mémoire conversationnelle, à améliorer la précision de recherche avec des approches hybrides, et à transformer votre prototype en micro-service déployable.</p>
+<p><strong>Objectifs pédagogiques :</strong>.
+À l'issue de ce cours, vous serez capable de :</p>
 <ul>
-<li>Générer des propositions à partir de différents angles de communication ;</li>
-<li>Attribuer un score à chaque piste selon des critères explicites (impact, pertinence écologique, mémorisation) ;</li>
-<li>Comparer et justifier le choix final en retraçant le cheminement des idées.</li>
+<li>Intégrer une mémoire conversationnelle pour maintenir le contexte entre les interactions</li>
+<li>Implémenter une recherche hybride combinant approches lexicale et vectorielle</li>
+<li>Déployer un système RAG sous forme de micro-service REST avec FastAPI</li>
+<li>Évaluer les améliorations apportées par ces extensions</li>
+<li>Identifier les considérations techniques pour un passage en production</li>
 </ul>
+<p><strong>Métriques d'évaluation RAG</strong> :
+Ce notebook se concentre sur trois extensions fondamentales :</p>
+<ul>
+<li><strong>Mémoire conversationnelle :</strong> Permet au système de maintenir le contexte des échanges précédents, transformant les interactions ponctuelles en véritables conversations suivies.</li>
+<li><strong>Recherche Hybride :</strong> Combine la recherche vectorielle sémantique avec la recherche lexicale BM25 pour améliorer la précision, particulièrement sur les termes rares ou techniques.</li>
+<li><strong>Déploiement FastAPI :</strong> Transforme le prototype en micro-service REST professionnel, avec sérialisation JSON et interface programmatique standardisée.</li>
+</ul>
+<p><strong>Cas d'usage : Optimisation du Service Client TechStore</strong>
+En continuité avec les notebooks précédents, nous étendons le système de service client pour TechStore avec ces nouvelles capacités, en conservant la même base documentaire tout en enrichissant l'expérience utilisateur.</p>
 </div>
 </div>
 </div>
@@ -7535,7 +7545,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Pr%C3%A9parer-l%E2%80%99environnement">1. Préparer l’environnement<a class="anchor-link" href="#1.-Pr%C3%A9parer-l%E2%80%99environnement">¶</a></h2>
+<h2 id="1.-Pr%C3%A9paration-de-l%E2%80%99environnement">1. Préparation de l’environnement<a class="anchor-link" href="#1.-Pr%C3%A9paration-de-l%E2%80%99environnement">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7545,8 +7555,17 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Avant de commencer, assurons-nous que toutes les bibliothèques nécessaires sont bien installées et que l'accès à l'API OpenAI est configuré.</p>
-<p>Exécutez la cellule suivante <strong>une seule fois</strong> pour installer les bibliothèques utilisées dans ce notebook :</p>
+<h3 id="1.1.-Installation-des-d%C3%A9pendances">1.1. Installation des dépendances<a class="anchor-link" href="#1.1.-Installation-des-d%C3%A9pendances">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Cette section installe les bibliothèques nécessaires pour les extensions avancées, en complément de celles utilisées dans les notebooks précédents.</p>
 </div>
 </div>
 </div>
@@ -7557,7 +7576,20 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Cette cellule importe les modules nécessaires, charge les variables d’environnement, et vous demande une clé OpenAI si elle n’est pas déjà définie.</p>
+<h3 id="1.2.-Imports-des-biblioth%C3%A8ques">1.2. Imports des bibliothèques<a class="anchor-link" href="#1.2.-Imports-des-biblioth%C3%A8ques">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>✅ Imports terminés avec succès
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7580,163 +7612,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Remarque</strong> : ce notebook utilise le modèle <code>gpt-4o-mini</code>, mais vous pouvez adapter à un autre modèle (ex. gpt-4) si besoin.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Construction-des-outils-ToT-avec-LangChain">2. Construction des outils ToT avec LangChain<a class="anchor-link" href="#2.-Construction-des-outils-ToT-avec-LangChain">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Nous commençons par initialiser un modèle de langage via LangChain pour générer et évaluer des propositions textuelles.</p>
-<p>Ici, nous utilisons <code>gpt-4o-mini</code> avec une température modérée afin de favoriser la créativité tout en gardant une certaine cohérence.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.1.-G%C3%A9n%C3%A9ration-d%E2%80%99alternatives-cr%C3%A9atives">2.1. Génération d’alternatives créatives<a class="anchor-link" href="#2.1.-G%C3%A9n%C3%A9ration-d%E2%80%99alternatives-cr%C3%A9atives">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Pour explorer plusieurs pistes de communication, nous avons besoin d’un outil capable de générer rapidement différentes versions d’un slogan à partir d’un prompt.</p>
-<p>La fonction suivante produit un nombre donné de slogans concis et sans justification, prêts à être comparés.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2.-%C3%89valuation-des-slogans-:-scoring-hybride">2.2. Évaluation des slogans : scoring hybride<a class="anchor-link" href="#2.2.-%C3%89valuation-des-slogans-:-scoring-hybride">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>L’arbre de pensées repose non seulement sur la génération d’options, mais aussi sur leur évaluation rigoureuse.</p>
-<p>Ici, nous combinons deux approches :</p>
-<ul>
-<li>un <strong>scoring LLM</strong> basé sur des critères marketing explicites (impact, durabilité, mémorisation) ;</li>
-<li>un <strong>ajustement heuristique</strong> introduisant des règles métier simples (longueur, mots-clés).</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Score-LLM">Score LLM<a class="anchor-link" href="#Score-LLM">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="P%C3%A9nalit%C3%A9-heuristique">Pénalité heuristique<a class="anchor-link" href="#P%C3%A9nalit%C3%A9-heuristique">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Score-final">Score final<a class="anchor-link" href="#Score-final">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Impl%C3%A9mentation-du-raisonnement-arborescent">3. Implémentation du raisonnement arborescent<a class="anchor-link" href="#3.-Impl%C3%A9mentation-du-raisonnement-arborescent">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Dans cette section, nous implémentons deux stratégies classiques d'exploration d'arbre : <strong>Breadth-First Search</strong> (BFS) et <strong>Depth-First Search</strong> (DFS).</p>
-<p>Objectif : explorer différentes pistes créatives et identifier la séquence de slogans la plus prometteuse en maximisant le score moyen.</p>
-<p>Aucune dépendance externe n’est requise ici : tout est codé à la main pour bien comprendre le fonctionnement de l’algorithme.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Comparaison-des-r%C3%A9sultats-entre-BFS-et-DFS">4. Comparaison des résultats entre BFS et DFS<a class="anchor-link" href="#4.-Comparaison-des-r%C3%A9sultats-entre-BFS-et-DFS">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Nous allons maintenant tester l’algorithme <code>run_tot</code> sur un prompt marketing et comparer les deux approches.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.1.-R%C3%A9sultats-de-l%E2%80%99approche-BFS">4.1. Résultats de l’approche BFS<a class="anchor-link" href="#4.1.-R%C3%A9sultats-de-l%E2%80%99approche-BFS">¶</a></h3>
+<h3 id="1.3.-Authentification-Google-Drive">1.3. Authentification Google Drive<a class="anchor-link" href="#1.3.-Authentification-Google-Drive">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7747,13 +7623,14 @@ a.anchor-link {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>BFS → Meilleur chemin
-Étape 1 : 3. "Frais, pur, sans déchet !"  (score 7.0)
-Étape 2 : 1. "Naturellement bon, zéro déchet !"  (score 8.5)
-Étape 3 : 1. "Éveille tes sens, préserve la planète !"  (score 7.0)
-Étape 4 : "Bois responsable, vis durable !"  (score 8.0)
-Étape 5 : "Nature en bouteille, zéro plastique !"  (score 8.5)
-Score moyen : 7.80
+<pre>Configuration de l'authentification...
+⚠️  ATTENTION : Une popup d'autorisation Google va s'afficher
+Instructions d'authentification :
+   1. Cliquez sur 'Autoriser' dans la popup
+   2. Sélectionnez votre compte Google
+   3. Acceptez les permissions demandées
+   4. Attendez la confirmation d'authentification
+--------------------------------------------------
 </pre>
 </div>
 </div>
@@ -7765,7 +7642,7 @@ Score moyen : 7.80
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.2.-R%C3%A9sultats-de-l%E2%80%99approche-DFS">4.2. Résultats de l’approche DFS<a class="anchor-link" href="#4.2.-R%C3%A9sultats-de-l%E2%80%99approche-DFS">¶</a></h3>
+<h3 id="1.4.-Chargement-des-documents">1.4. Chargement des documents<a class="anchor-link" href="#1.4.-Chargement-des-documents">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7776,10 +7653,16 @@ Score moyen : 7.80
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-DFS → Meilleur chemin
-Étape 1 : 1. "Sirote la nature, pas le plastique !"  (score 7.5)
-Score moyen : 7.50
+<pre>Chargement de Politique de retour et remboursement
+✓ Document chargé avec succès : Politique de retour et remboursement
+Chargement de Garantie et service après-vente
+✓ Document chargé avec succès : Garantie et service après-vente
+Chargement de Livraison et expédition
+✓ Document chargé avec succès : Livraison et expédition
+Chargement de Compte client et gestion des commandes
+✓ Document chargé avec succès : Compte client et gestion des commandes
+Chargement de Produits et compatibilité
+✓ Document chargé avec succès : Produits et compatibilité
 </pre>
 </div>
 </div>
@@ -7791,7 +7674,7 @@ Score moyen : 7.50
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="4.3.-Visualisation-des-scores-explor%C3%A9s">4.3. Visualisation des scores explorés<a class="anchor-link" href="#4.3.-Visualisation-des-scores-explor%C3%A9s">¶</a></h3>
+<h2 id="2.-Construction-du-syst%C3%A8me-RAG-baseline">2. Construction du système RAG baseline<a class="anchor-link" href="#2.-Construction-du-syst%C3%A8me-RAG-baseline">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7801,13 +7684,182 @@ Score moyen : 7.50
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Le graphique ci-dessous montre la répartition des scores générés par les deux algorithmes à chaque niveau de l’arbre. Cela permet d’observer leurs dynamiques d’exploration.</p>
-<p>Questions critiques à se poser :</p>
+<p>Nous reconstituons le système RAG optimisé du notebook précédent comme base pour nos extensions.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Construction du système RAG de base...
+✅ 20 chunks créés
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/tmp/ipython-input-6-2638024723.py:22: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(
+/usr/local/lib/python3.11/dist-packages/huggingface_hub/utils/_auth.py:94: UserWarning: 
+The secret `HF_TOKEN` does not exist in your Colab secrets.
+To authenticate with the Hugging Face Hub, create a token in your settings tab (https://huggingface.co/settings/tokens), set it as secret in your Google Colab and restart your session.
+You will be able to reuse this secret in all of your notebooks.
+Please note that authentication is recommended but still optional to access public models or datasets.
+  warnings.warn(
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>modules.json:   0%|          | 0.00/349 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>config_sentence_transformers.json:   0%|          | 0.00/116 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>README.md: 0.00B [00:00, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>sentence_bert_config.json:   0%|          | 0.00/53.0 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>config.json:   0%|          | 0.00/612 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>model.safetensors:   0%|          | 0.00/90.9M [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>tokenizer_config.json:   0%|          | 0.00/350 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>vocab.txt: 0.00B [00:00, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>tokenizer.json: 0.00B [00:00, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>special_tokens_map.json:   0%|          | 0.00/112 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>config.json:   0%|          | 0.00/190 [00:00&lt;?, ?B/s]</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>✅ Modèle d'embeddings configuré
+✅ Base vectorielle créée
+✅ Modèle de génération configuré
+✅ Système RAG de base construit
+Test du système RAG de base :
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/tmp/ipython-input-7-3581436080.py:6: LangChainDeprecationWarning: The method `Chain.__call__` was deprecated in langchain 0.1.0 and will be removed in 1.0. Use :meth:`~invoke` instead.
+  test_result = base_system['qa_chain']({"query": "Quel est le délai de retour ?"})
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Réponse : Le délai de retour pour les produits neufs est de 30 jours calendaires à partir de la livraison. Pou...
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Extension-1-:-M%C3%A9moire-conversationnelle">3. Extension 1 : Mémoire conversationnelle<a class="anchor-link" href="#3.-Extension-1-:-M%C3%A9moire-conversationnelle">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Cette section transforme notre système RAG ponctuel en assistant conversationnel capable de maintenir le contexte des échanges précédents.</p>
+<p><strong>Principe de la mémoire conversationnelle</strong>
+La mémoire conversationnelle permet au système de :</p>
 <ul>
-<li>Les scores se concentrent-ils aux premiers niveaux ou montent-ils en profondeur ?</li>
-<li>Le pruning de BFS élimine-t-il trop tôt des idées originales ?</li>
-<li>DFS consomme-t-il plus de tokens sans réel gain ?</li>
+<li>Conserver l'historique des questions et réponses précédentes</li>
+<li>Comprendre les références contextuelles ("Et pour les ordinateurs ?", "Combien ça coûte ?")</li>
+<li>Maintenir une conversation naturelle et fluide</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="3.1.-Construction-de-la-m%C3%A9moire-conversationnelle">3.1. Construction de la mémoire conversationnelle<a class="anchor-link" href="#3.1.-Construction-de-la-m%C3%A9moire-conversationnelle">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Extension du système avec mémoire conversationnelle...
+✅ Système conversationnel configuré
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/tmp/ipython-input-8-1912208607.py:9: LangChainDeprecationWarning: Please see the migration guide at: https://python.langchain.com/docs/versions/migrating_memory/
+  memory = ConversationBufferMemory(
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="3.2.-D%C3%A9monstration-de-la-m%C3%A9moire-conversationnelle">3.2. Démonstration de la mémoire conversationnelle<a class="anchor-link" href="#3.2.-D%C3%A9monstration-de-la-m%C3%A9moire-conversationnelle">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7817,38 +7869,77 @@ Score moyen : 7.50
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<html>
-<head><meta charset="utf-8"/></head>
-<body>
-<div> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script> <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-<script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script> <div class="plotly-graph-div" id="cadd174e-acb2-4d2f-924e-760195791e65" style="height:525px; width:100%;"></div> <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("cadd174e-acb2-4d2f-924e-760195791e65")) {                    Plotly.newPlot(                        "cadd174e-acb2-4d2f-924e-760195791e65",                        [{"alignmentgroup":"True","hovertemplate":"Algo=BFS\u003cbr\u003eniveau=%{x}\u003cbr\u003escore=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"BFS","marker":{"color":"#636efa"},"name":"BFS","notched":false,"offsetgroup":"BFS","orientation":"v","showlegend":true,"x":[0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4],"x0":" ","xaxis":"x","y":[6.5,7.5,7.0,7.5,6.0,7.5,8.5,6.0,6.5,6.0,7.5,6.5,7.0,7.5,6.5,7.0,6.5,7.5,7.0,8.0,7.0,7.0,7.0,6.0,7.0,7.5,7.0,8.0,8.0,7.5,7.0,7.5,6.0,7.0,8.5,7.5,7.5,6.0,6.0],"y0":" ","yaxis":"y","type":"box"},{"alignmentgroup":"True","hovertemplate":"Algo=DFS\u003cbr\u003eniveau=%{x}\u003cbr\u003escore=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"DFS","marker":{"color":"#EF553B"},"name":"DFS","notched":false,"offsetgroup":"DFS","orientation":"v","showlegend":true,"x":[0,0,0,1,1,1,2,2,2,3,3,3,4,4,4],"x0":" ","xaxis":"x","y":[7.5,7.0,6.0,7.5,7.0,6.5,6.5,6.0,6.0,6.5,5.0,7.0,6.5,4.0,6.0],"y0":" ","yaxis":"y","type":"box"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Niveau dans l'arbre"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Score"}},"legend":{"title":{"text":"Algo"},"tracegroupgap":0},"title":{"text":"Distribution des scores par niveau \u002f algorithme"},"boxmode":"group"},                        {"responsive": true}                    ).then(function(){
-                            
-var gd = document.getElementById('cadd174e-acb2-4d2f-924e-760195791e65');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Client (tour 1) : Quels sont vos délais de livraison ?
+Assistant : Bonjour,
 
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
+Nos délais de livraison varient en fonction de l'option que vous choisissez. Nous proposons une Livraison Standard gratuite avec un délai de 3 à 5 jours ouvrés via Colissimo pour les commandes de plus de 50€. Pour une livraison plus rapide, nous offrons également une Livraison Express en 24h ou 48h en France métropolitaine, avec des frais supplémentaires.
 
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
+N'hésitez pas à nous préciser votre choix pour que nous puissions vous fournir plus de détails.
 
-                        })                };                            </script> </div>
-</body>
-</html>
+Cordialement,
+L'équipe du service client de TechStore
+
+------------------------------------------------------------
+
+Client (tour 2) : Et les coûts pour la livraison express ?
+Assistant : Bonjour,
+
+Pour la livraison express, nous proposons deux options :
+- Livraison en 24h pour 9,99€ (commande avant 15h, livraison le lendemain)
+- Livraison en 48h pour 6,99€ (livraison sous 2 jours ouvrés)
+
+Ces tarifs s'appliquent uniquement pour les livraisons en France métropolitaine. N'hésitez pas à nous indiquer votre choix pour que nous puissions organiser la livraison selon vos préférences.
+
+Cordialement,
+L'équipe du service client de TechStore
+
+------------------------------------------------------------
+
+Client (tour 3) : Comment puis-je suivre ma commande ?
+Assistant : Bonjour,
+
+Pour suivre votre commande, vous pouvez vous connecter à votre compte client sur notre site web. Une fois connecté, vous pourrez accéder à l'historique de vos commandes et suivre en temps réel l'état de votre commande, de la confirmation à la livraison. Vous recevrez également des notifications par email et SMS à chaque étape clé du processus d'expédition.
+
+N'hésitez pas à nous contacter si vous avez besoin d'aide supplémentaire pour suivre votre commande.
+
+Cordialement,
+L'équipe du service client de TechStore
+
+------------------------------------------------------------
+
+Client (tour 4) : Que faire si ma livraison a du retard ?
+Assistant : Bonjour,
+
+Si votre livraison a du retard, nous vous recommandons tout d'abord de vérifier le suivi de votre commande sur votre compte client pour obtenir des informations actualisées sur l'état de votre livraison. Si vous constatez un retard significatif, n'hésitez pas à nous contacter directement afin que nous puissions enquêter et vous fournir des informations précises sur la situation.
+
+Nous nous engageons à vous tenir informé de tout problème éventuel et à trouver une solution rapide pour que vous receviez votre commande dans les meilleurs délais possibles.
+
+Cordialement,
+L'équipe du service client de TechStore
+
+------------------------------------------------------------
+
+--- HISTORIQUE DE LA CONVERSATION ---
+Mémoire accumulée :
+Client : Quels sont vos délais de livraison ?...
+Assistant : Bonjour,
+
+Nos délais de livraison varient en fonction de l'option que vous choisissez. Nous proposon...
+Client : Et les coûts pour la livraison express ?...
+Assistant : Bonjour,
+
+Pour la livraison express, nous proposons deux options :
+- Livraison en 24h pour 9,99€ (co...
+Client : Comment puis-je suivre ma commande ?...
+Assistant : Bonjour,
+
+Pour suivre votre commande, vous pouvez vous connecter à votre compte client sur notre sit...
+Client : Que faire si ma livraison a du retard ?...
+Assistant : Bonjour,
+
+Si votre livraison a du retard, nous vous recommandons tout d'abord de vérifier le suivi d...
+</pre>
 </div>
 </div>
 </div>
@@ -7859,12 +7950,425 @@ if (outputEl) {{
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Pour-aller-plus-loin">Pour aller plus loin<a class="anchor-link" href="#Pour-aller-plus-loin">¶</a></h2><ul>
-<li><strong>Paramétrage</strong> : vous pouvez modifier branching, depth, temperature et mesurer l’impact sur la diversité et le temps de réponse.</li>
-<li><strong>Scoring custom</strong> : remplacez l’heuristique heuristic_penalty par un calcul de similarité d’embedding pour favoriser l’originalité.</li>
-<li><strong>Logging avancé</strong> : exportez la trace complète (prompt partiel, score, coût token) pour un audit détaillé.</li>
-<li><strong>Guardrails</strong> : ajoutez un filtre LangChain OutputParser pour interdire tout slogan de plus de 40 caractères.</li>
-<li><strong>MCTS simplifié</strong> : implémentez une fonction de sélection probabiliste (exploration / exploitation) et comparez avec BFS/DFS.</li>
+<h3 id="3.3.-Comparaison-avec-le-syst%C3%A8me-sans-m%C3%A9moire">3.3. Comparaison avec le système sans mémoire<a class="anchor-link" href="#3.3.-Comparaison-avec-le-syst%C3%A8me-sans-m%C3%A9moire">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Test 1 : Questions avec mots-clés explicites
+--------------------------------------------------
+Question initiale : Quels sont vos délais de retour ?
+Question de suivi : Et pour les produits reconditionnés ?
+
+--- Système AVEC mémoire ---
+Réponse 1 : Bonjour,
+
+Les délais de retour de nos produits varient en fonction de leur état :
+- Pour les produits neufs, vous disposez de 30 jours calendaires à p...
+Réponse 2 : Bonjour,
+
+Pour les produits reconditionnés, le délai de retour est de 14 jours calendaires à partir de la date de livraison. Vous disposez donc de deu...
+
+--- Système SANS mémoire ---
+Réponse 1 : Nos délais de retour varient en fonction du type de produit que vous avez acheté. Pour les produits neufs, vous disposez de 30 jours calendaires à par...
+Réponse 2 : Pour les produits reconditionnés, le délai de retour est de 14 jours calendaires à partir de la livraison. N'hésitez pas à nous contacter si vous avez...
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Question 1 : Je veux retourner mon smartphone
+Question 2 : Combien ça coûte ?
+Question 3 : Et la réparation ?
+
+--- Système AVEC mémoire ---
+Réponse 1 : Pour retourner votre smartphone, voici ce que vous devez faire :
+1. Vérifiez que votre smartphone n'est ni défectueux ni...
+Réponse 2 : Le retour de votre smartphone vous coûtera 7,99€ si c'est un retour de convenance. Si le retour est dû à un produit défe...
+Réponse 3 : Je ne connais pas les tarifs de réparation. Vous pouvez contacter le service clientèle par chat en ligne, téléphone au 0...
+
+--- Système SANS mémoire ---
+Réponse 1 : Bonjour,
+
+Pour retourner votre smartphone, veuillez suivre les étapes suivantes :
+1. Faites une demande de retour via vo...
+Réponse 2 : Les frais de retour dépendent de la raison du retour. Si le produit est défectueux ou non conforme, le retour est gratui...
+Réponse 3 : Pour toute réparation de votre appareil, vous pouvez bénéficier de notre service de prise en charge en magasin ou d'enlè...
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>On voit que sans mémoire, la réponse à la question 3 est hors-sujet.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="4.-Extension-2-:-Recherche-hybride-lexicale-et-vectorielle">4. Extension 2 : Recherche hybride lexicale et vectorielle<a class="anchor-link" href="#4.-Extension-2-:-Recherche-hybride-lexicale-et-vectorielle">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Cette section implémente une recherche hybride combinant la recherche vectorielle sémantique avec la recherche lexicale BM25 pour améliorer la précision.</p>
+<p><strong>Principe de la recherche hybride</strong>.
+La recherche hybride combine :</p>
+<ul>
+<li>Recherche vectorielle : Excellente pour la similarité sémantique et les concepts</li>
+<li>Recherche lexicale (BM25) : Précise pour les termes exacts, noms propres, et mots-clés rares</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="4.1.-Construction-d'une-recherche-hybride">4.1. Construction d'une recherche hybride<a class="anchor-link" href="#4.1.-Construction-d'une-recherche-hybride">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Configuration du système RAG avec recherche hybride...
+✅ Système RAG hybride configuré avec 20 chunks
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="4.2.-%C3%89valuation-comparative-des-approches-de-recherche">4.2. Évaluation comparative des approches de recherche<a class="anchor-link" href="#4.2.-%C3%89valuation-comparative-des-approches-de-recherche">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Test 1 : Délai de retour produit reconditionné
+Type : Terme spécifique - devrait favoriser BM25
+
+--- Recherche vectorielle seule ---
+Réponse : Le délai de retour pour un produit reconditionné est le même que pour tout autre produit acheté chez TechStore. Vous disposez de 14 jours à compter de la réception de votre commande pour demander un retour. Une fois la demande de retour effectuée, veuillez suivre le processus de remboursement indiqué. Si vous avez d'autres questions, n'hésitez pas à nous contacter.
+Sources trouvées : 3
+
+--- Recherche hybride ---
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/tmp/ipython-input-13-1862960468.py:94: LangChainDeprecationWarning: The method `BaseChatModel.predict` was deprecated in langchain-core 0.1.7 and will be removed in 1.0. Use :meth:`~invoke` instead.
+  response = base_system['llm'].predict(prompt_text)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Réponse : Le délai de retour pour un produit reconditionné est le même que pour tout autre produit acheté chez TechStore. Vous disposez de 14 jours à compter de la réception de votre commande pour demander un retour. Une fois la demande effectuée, vous recevrez une étiquette de retour prépayée sous 24h. Après avoir expédié le colis dans les 7 jours suivant la demande, notre équipe procédera à l'inspection du produit en 2-3 jours ouvrés. Le remboursement sera effectué sur le mode de paiement initial sous 5-7 jours ouvrés. N'hésitez pas à contacter notre service client si vous avez besoin de plus d'informations.
+Sources trouvées : 3
+
+============================================================
+
+Test 2 : Que faire si mon smartphone ne fonctionne plus ?
+Type : Question sémantique - devrait favoriser vectoriel
+
+--- Recherche vectorielle seule ---
+Réponse : Si votre smartphone ne fonctionne plus, vous pouvez vérifier s'il est toujours couvert par la garantie légale de conformité de 2 ans en France. Selon la marque de votre smartphone, il peut également bénéficier de la garantie constructeur, qui varie de 1 à 2 ans. Si votre smartphone est toujours sous garantie, vous pouvez contacter notre service client pour obtenir de l'aide pour la réparation ou le remplacement de votre appareil. Si vous avez souscrit à notre garantie étendue TechStore+, veuillez nous contacter pour bénéficier des avantages inclus dans votre formule.
+Sources trouvées : 3
+
+--- Recherche hybride ---
+Réponse : Si votre smartphone ne fonctionne plus, vous pouvez vérifier d'abord s'il est toujours couvert par la garantie légale de conformité de 2 ans en France. Si c'est le cas, vous pouvez contacter notre service client pour obtenir des instructions sur la procédure de retour et de réparation.
+
+Si votre smartphone est couvert par la garantie constructeur, la durée de garantie varie en fonction de la marque. Par exemple, pour un smartphone Apple, la garantie est de 1 an, tandis que pour un smartphone Samsung, elle est de 2 ans. Vous pouvez également envisager de souscrire à notre garantie étendue TechStore+ pour bénéficier d'une couverture supplémentaire en cas de panne ou de casse accidentelle.
+
+Enfin, si votre smartphone est compatible avec la 5G et que vous rencontrez des problèmes de réseau, assurez-vous que votre opérate
+Sources trouvées : 3
+
+============================================================
+
+Test 3 : Livraison express coût
+Type : Mots-clés courts - hybride avantagé
+
+--- Recherche vectorielle seule ---
+Réponse : Le coût de la livraison express varie en fonction de l'option choisie :
+- Livraison express 24h : 9,99€
+- Livraison express 48h : 6,99€
+
+Veuillez noter que ces tarifs s'appliquent uniquement pour les livraisons en France métropolitaine. Si vous avez d'autres questions ou besoin de plus d'informations, n'hésitez pas à nous contacter.
+Sources trouvées : 3
+
+--- Recherche hybride ---
+Réponse : Le coût de la livraison express varie en fonction de l'option choisie :
+- Livraison express 24h : 9,99€
+- Livraison express 48h : 6,99€
+
+Ces tarifs s'appliquent uniquement pour les livraisons en France métropolitaine. N'hésitez pas à consulter nos autres options de livraison pour trouver celle qui correspond le mieux à vos besoins. Nous restons à votre disposition pour toute autre question.
+Sources trouvées : 3
+
+============================================================
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Les deux approches trouvent des informations pertinentes. La recherche hybride peut offrir une meilleure couverture sur des corpus plus larges.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="5.-Extension-3-:-D%C3%A9ploiement-en-micro-service-FastAPI">5. Extension 3 : Déploiement en micro-service FastAPI<a class="anchor-link" href="#5.-Extension-3-:-D%C3%A9ploiement-en-micro-service-FastAPI">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Cette section transforme notre prototype RAG en micro-service REST professionnel, prêt pour une intégration en production.</p>
+<p><strong>Architecture du micro-service</strong>.
+Le micro-service expose notre système RAG via une API REST avec :</p>
+<ul>
+<li>Point d'entrée /ask pour les questions</li>
+<li>Sérialisation JSON des réponses</li>
+<li>Gestion d'erreurs appropriée</li>
+<li>Documentation automatique</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="5.1.-Contruction-du-RAG-Service">5.1. Contruction du RAG Service<a class="anchor-link" href="#5.1.-Contruction-du-RAG-Service">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Initialisation du service RAG...
+✅ Service RAG initialisé
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="5.2.-Configuration-de-l'API-FastAPI">5.2. Configuration de l'API FastAPI<a class="anchor-link" href="#5.2.-Configuration-de-l'API-FastAPI">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="5.3.-D%C3%A9ploiement-et-test-du-micro-service">5.3. Déploiement et test du micro-service<a class="anchor-link" href="#5.3.-D%C3%A9ploiement-et-test-du-micro-service">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Démarrage du serveur...
+✅ Service déployé sur http://127.0.0.1:8000
+📖 Documentation interactive disponible sur : http://127.0.0.1:8000/docs
+
+--- Test 1 : Vérification de l'état ---
+Status: 200
+Réponse: {'status': 'healthy', 'timestamp': 1753707722.302171, 'systems': {'base_rag': 'active', 'hybrid_search': 'active', 'conversational': 'active'}}
+
+--- Test 2 : Question simple ---
+Status: 200
+Réponse: Le délai de livraison standard pour les commandes chez TechStore est de 3 à 5 jours ouvrés. Cette op...
+Sources: ['Livraison et expédition', 'Politique de retour et remboursement', 'Garantie et service après-vente']
+Temps de traitement: 0.88s
+
+--- Test 3 : Conversation avec mémoire ---
+Tour 1 - Question: Quels sont vos délais de retour ?
+Tour 1 - Réponse: Bonjour,
+
+Pour les produits reconditionnés, le délai de retour est de 14 jours calendaires à partir ...
+
+Tour 2 - Question: Et pour les produits reconditionnés ?
+Tour 2 - Réponse: Bonjour,
+
+Pour les produits reconditionnés, le délai de retour est de 14 jours calendaires à partir ...
+
+🎉 Tests du micro-service terminés
+
+Le service reste actif pour vos tests personnalisés.
+Utilisez curl ou un client REST pour interagir avec l'API.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="5.4.-Exemples-d'utilisation-avec-curl">5.4. Exemples d'utilisation avec curl<a class="anchor-link" href="#5.4.-Exemples-d'utilisation-avec-curl">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{"answer":"Pour retourner un produit chez TechStore, vous devez vous assurer que le produit est dans son emballage d'origine et qu'il est accompagné de tous les accessoires fournis (chargeur, écouteurs, câbles, manuels). L'appareil ne doit présenter aucun dommage physique ni trace d'usure excessive.\n\nSi le produit est défectueux ou non conforme, le retour est gratuit. Dans ce cas, veuillez contacter notre service client pour obtenir un bon de retour.\n\nPour les retours de convenance, les frais de retour de 7,99€ seront à la charge du client. Cependant, les retours sont gratuits pour les commandes supérieures à 100€.\n\nLes délais de retour varient en fonction du type de produit : 30 jours calendaires pour les produits neufs, 14 jours calendaires pour les produits reconditionnés et 30 jours","sources":["Politique de retour et remboursement","Politique de retour et remboursement","Politique de retour et remboursement"],"conversation_id":null,"processing_time":2.055227041244507}curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{"answer":"Bonjour,\n\nChez TechStore, nous proposons plusieurs services de garantie pour nos produits :\n- Tous nos produits bénéficient de la garantie légale de conformité de 2 ans en France, applicable dès l'achat.\n- Certains produits bénéficient également de la garantie constructeur, allant de 1 à 2 ans selon la marque et le type de produit (smartphones, ordinateurs portables, accessoires).\n\nDe plus, nous offrons des options d'extension de garantie avec notre service TechStore+ :\n- TechStore+ Basic (39€) : +1 an de garantie, support prioritaire\n- TechStore+ Premium (89€) : +2 ans de garantie, casse accidentelle incluse\n- TechStore+ Pro (149€) : +3 ans de garantie, remplacement express en 24h\n\nN'hésitez pas à nous contacter si vous avez besoin de","sources":["Garantie et service après-vente","Compte client et gestion des commandes","Garantie et service après-vente"],"conversation_id":"client_123","processing_time":2.459136724472046}</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{"answer":"Bonjour,\n\nLes prix des options d'extension de garantie avec notre service TechStore+ sont les suivants :\n- TechStore+ Basic (39€) : +1 an de garantie, support prioritaire\n- TechStore+ Premium (89€) : +2 ans de garantie, casse accidentelle incluse\n- TechStore+ Pro (149€) : +3 ans de garantie, remplacement express en 24h\n\nN'hésitez pas à nous contacter si vous avez besoin de plus d'informations ou si vous souhaitez souscrire à l'une de ces options d'extension de garantie.\n\nCordialement,\nL'équipe du service client de TechStore","sources":["Garantie et service après-vente","Compte client et gestion des commandes","Garantie et service après-vente"],"conversation_id":"client_123","processing_time":1.8794233798980713}curl: (3) URL using bad/illegal format or missing URL
+curl: (3) URL using bad/illegal format or missing URL
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{"status":"healthy","timestamp":1753708236.2954006,"systems":{"base_rag":"active","hybrid_search":"active","conversational":"active"}}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Pour-aller-plus-loin">Pour aller plus loin<a class="anchor-link" href="#Pour-aller-plus-loin">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Pour approfondir l’industrialisation d’un système RAG, vous pouvez explorer les pistes suivantes :</p>
+<ul>
+<li><strong>Monitoring de la performance</strong> : mettez en place un suivi continu des métriques (précision, temps de réponse, taux d’erreur) via des outils comme Prometheus, Grafana ou des logs structurés.</li>
+<li><strong>Gestion des mises à jour du corpus</strong> : automatisez l’ingestion de nouveaux documents avec des pipelines réguliers ou des triggers événementiels (par exemple, en lien avec un CMS ou Google Drive).</li>
+<li><strong>Optimisation des coûts</strong> : testez des alternatives à OpenAI (ex. modèles open-source hébergés), ou ajustez dynamiquement les modèles et paramètres en fonction du trafic.</li>
+<li><strong>Sécurité et gouvernance</strong> : intégrez des mécanismes d’authentification, de gestion des droits d’accès et de journalisation pour répondre aux exigences de conformité.</li>
+<li><strong>Interface utilisateur personnalisée</strong> : développez une interface web ou mobile dédiée (par exemple avec Streamlit, React ou Flutter) pour exposer le service RAG à vos utilisateurs finaux.</li>
 </ul>
 </div>
 </div>
@@ -7885,7 +8389,8 @@ if (outputEl) {{
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>En résumé, Tree of Thoughts permet d’explorer des idées de manière structurée, en stimulant la créativité tout en conservant un cadre d’évaluation rigoureux. Le scoring hybride, combinant modèle de langage et règles métier, assure un équilibre entre subjectivité et contraintes opérationnelles. Le choix d’algorithme (BFS, DFS, MCTS) a un impact direct sur le coût en tokens et la qualité des résultats, d’où l’importance de bien le calibrer. En intégrant traçabilité et visualisation, cette approche devient un véritable levier d’idéation responsable, adaptable à différents contextes et exigences.</p>
+<p>Ce notebook vous a permis d’explorer trois axes d’extension essentiels pour rendre un système RAG opérationnel en contexte réel : mémoire conversationnelle, recherche hybride et déploiement en micro-service. Ces composants forment la base d’un assistant intelligent, fiable et scalable, prêt à s’intégrer dans un environnement applicatif plus large.</p>
+<p>N’hésitez pas à adapter les architectures et les outils présentés à votre propre cas d’usage pour maximiser l’impact de votre système RAG.</p>
 </div>
 </div>
 </div>
