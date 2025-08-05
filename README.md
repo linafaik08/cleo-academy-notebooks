@@ -1,4 +1,4 @@
-# Cleo Academy – 📘 Notebooks & Ressources IA pour les entreprises
+# 📘 Cleo Academy – Notebooks & Ressources IA
 
 Bienvenue dans le dépôt centralisé de **Cléo Academy**. Ce dépôt regroupe l’ensemble des notebooks, scripts et documents pédagogiques utilisés dans nos programmes de formation personnalisés
 
